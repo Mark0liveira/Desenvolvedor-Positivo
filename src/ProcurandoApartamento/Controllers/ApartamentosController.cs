@@ -1,5 +1,3 @@
-
-using System.Threading;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using JHipsterNet.Core.Pagination;
@@ -8,12 +6,9 @@ using ProcurandoApartamento.Crosscutting.Exceptions;
 using ProcurandoApartamento.Web.Extensions;
 using ProcurandoApartamento.Web.Filters;
 using ProcurandoApartamento.Web.Rest.Utilities;
-using ProcurandoApartamento.Domain.Repositories.Interfaces;
 using ProcurandoApartamento.Domain.Services.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 
 namespace ProcurandoApartamento.Controllers
 {
@@ -68,6 +63,14 @@ namespace ProcurandoApartamento.Controllers
             _log.LogDebug($"REST request to delete Apartamento : {id}");
             await _apartamentoService.Delete(id);
             return NoContent().WithHeaders(HeaderUtil.CreateEntityDeletionAlert(EntityName, id.ToString()));
+        }
+        
+        [HttpPost("MelhorApartamento")]
+        public async Task<ActionResult<string>> RecuperaMelhorApartamento([FromBody] List<string> estabelecimentos)
+        {
+            _log.LogDebug("REST request to get better Apartamento by list of establishment");
+            string result = await _apartamentoService.RecuperaMelhorApartamento(estabelecimentos);
+            return Ok(result);
         }
     }
 }
