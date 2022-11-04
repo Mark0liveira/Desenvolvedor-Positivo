@@ -1,66 +1,148 @@
-# Projeto Procurando Apartamento
+# Marcos de Oliveira Andrade
+<p>.NET Developer | C# | Asp.net | .NET | Angular</p>
 
-Você provê um serviço por web de busca de apartamentos para locatários. Neste serviço, neste lugar específico da cidade mostrado no mapa abaixo, estão disponíveis diversos apartamentos em cada uma das quadras. As quadras, além de conter os apartamentos, mostram onde a rua começa e onde termina já que a quadra 1 é o início da rua e quadra (n) é mais próximo a seu final. O mapa não determina, porém, o sentido de pedestres e carros já que é mão dupla. É disponibilizada para esse serviço uma tabela da relação de serviços disponíveis em cada uma das quadras: academia, escola e mercado. Os locatários são pessoas muito ocupadas e trabalham remotamente. Assim, é muito importante que eles morem em um lugar com menor deslocamento possível. O serviço deve, com base na indicação do locatário em necessidades de serviços, buscar um apartamento dentro da quadra que proporcione menor deslocamento para seu dia a dia. 
+<div style="display: inline_block"><br>
+  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-plain.svg">  
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg">
+  <img align="center" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg">  
+  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original-wordmark.svg"> 
+  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg">
+</div>
+  
+  ##
 
-![image](https://user-images.githubusercontent.com/112395489/187196886-8818cda2-395c-4968-8831-645211fb303b.png)
-
-A tabela mostra a relação de “ApartamentosDisponiveis” e os estabelecimentos existentes na quadra. Você deve usá-la para tomar a decisão sobre a melhor escolha de imóvel para seu cliente.
-
-![image](https://user-images.githubusercontent.com/112395489/187196932-38fe6a55-7e7e-4a26-a463-3a3e015335dc.png)
-
-A escolha do apartamento vai depender de:
-1.	Ter um apartamento disponível na quadra;
-2.	Andar o mínimo possível para encontrar um estabelecimento de seu interesse;
-3.	A Prioridade de estabelecimentos depende da ordem de entrada de dados. Então se a entrada de dados for ACADEMIA e ESCOLA por exemplo, deve-se priorizar apartamentos mais próximos de ACADEMIAS e depois de ESCOLAS;
-4.	O critério de desempate em caso de mais de uma quadra atender aos requisitos é escolher a quadra mais próxima ao final da rua.  
-
-## Exemplos:
-
-Considerando os testes abaixo, os resultados seriam os seguintes: 
-
-- ['ACADEMIA', 'MERCADO'] 
-    - O resultado deve ser QUADRA 1, pois na quadra 1 tem apartamento disponível e os dois estabelecimentos de seu interesse;
-
-- ['ACADEMIA'] 
-    - O resultado deve ser QUADRA 2, pois na quadra 2 tem apartamento disponível, tem academia e está mais próximo do final da rua;
-
-## O que entregar:
-1.	Algoritmo de resolução (Novo método no Controller Apartamento) Exemplo a seguir:
-![image](https://user-images.githubusercontent.com/90634328/187257056-3d55d9e0-11c2-416e-9c07-2eba82665fcf.png)
-
-    - A entrada de dados será um Array de String, e o return do Método será uma String. Ex: "Quadra 5";
-    - Qual seria o resultado caso as entradas sejam:
-        - ['ESCOLA', 'ACADEMIA'];
-        - ['ESCOLA', 'MERCADO', 'ACADEMIA'];
-    
-2.	Criar testes unitários baseado nos exemplos passados;
-![image](https://user-images.githubusercontent.com/90634328/187255894-6ff4700d-0e97-4435-af29-a615925c6d20.png)
+<div> 
+ <a href="https://discord.gg/#4155" target="_blank"><img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" target="_blank"></a> 
+  <a href = "mailto:markteclas@hotmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+  <a href="https://www.linkedin.com/in/marcos-de-oliveira-andrade-867888168/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+</div>
 
 
-## Instruções Gerais
-- Você deverá fazer:
- - Fork desse projeto em um repositório Privado, no Seu perfil, com o Titulo "Desenvolvedor-Positivo";
-    - ![image](https://user-images.githubusercontent.com/90634328/187271331-e6582814-f28b-47d8-a940-f39d76a1f62d.png)
-    -![image](https://user-images.githubusercontent.com/90634328/187272263-00e338ce-eb0c-474f-ab72-6c730060df56.png)
+# Formação acadêmica
+<strong>UNINTER Centro Universitário Internacional</strong>
+<p>Gestão da Tecnologia da Informação, 2017 - 2019</p>
+ 
 
-- Resolvê-lo e subir ao seu repositório Privado
-- Os acessos devem ser dados para os usuários 'jacirpositivo' e 'ctomasini' apenas;
-- O README.md deverá ser o seu curriculo, com a adequada formatação.
 
-## Requisitos de software para executar o projeto
-- net6.0 https://dotnet.microsoft.com/en-us/download/dotnet/6.0
-- Visual Studio 2022 (https://visualstudio.microsoft.com/pt-br/vs/) ou Visual Studio Code (https://code.visualstudio.com/)
+# Experiências
 
-## Comandos
-```{.cs}
-dotnet restore ProcurandoApartamento.sln
-```
-```{.cs}
-dotnet build ProcurandoApartamento.sln
-```
-```{.cs}
-dotnet watch run --project src\ProcurandoApartamento\ProcurandoApartamento.csproj
-```
-```{.cs}
-dotnet test test\ProcurandoApartamento.Test\ProcurandoApartamento.Test.csproj
-```
+
+<h2> 
+.NET Developer
+</h2>
+<strong> 
+Grupo Madero · Tempo integral
+</strong> 
+<p>
+Desenvolvimento backend dos microsserviços do grupo madero.
+.NET Core, .NET Framework, Dapper, Entity Framework e Azure.
+</p>
+
+
+<h2> 
+.NET Developer
+</h2>
+<strong> 
+Unimed · Tempo integral
+</strong> 
+<p>
+Desenvolvimento backend dos microsserviços do grupo madero. Apoio no desenvolvimento frontend com Angular.
+.NET Core, .NET Framework, Angular, PL/SQL e Azure.
+</p>
+
+
+<h2> 
+.NET Developer
+</h2>
+<strong> 
+Informma Síndicos Profissionais · Meio período
+</strong> 
+<p>
+Desenvolvimento do backend da aplicação da empresa e apoio ao frontend com Angular.
+Responsável técnico pelo projeto.
+.NET Core, Angular, PostgreeSQL, Digital Ocean e Heroku.
+</p>
+
+
+
+<h2> 
+Java Developer
+</h2>
+<strong> 
+CITS - Centro Internacional de Tecnologia de Software · Tempo integral
+</strong> 
+<p>
+Desenvolvimento e manutenção de sistemas web da Furukawa com ênfase no backend da aplicação. Java e angular com Jenkins e Docker | Arquitetura em Microsserviços
+</p>
+
+
+<h2> 
+Full Stack Developer
+</h2>
+<strong> 
+Marksistem · Freelance
+</strong> 
+<p>
+Desenvolvimento de sistemas WEB Freelance. Projetos em .NET Core, .NET Framework, Angular, Azure, MySQL e PostgreeSQL.
+</p>
+
+
+
+
+<h2> 
+Full Stack Developer
+</h2>
+<strong> 
+Blend IT Consultoria · Tempo integral
+</strong> 
+<p>
+Desenvolvimento de sistemas Angular e .NET Core em Azure Devops para empresas como Eneva e Sebrae.
+</p>
+
+
+<h2> 
+Angular Developer
+</h2>
+<strong> 
+Gestran - Software para Transportes · Tempo integral
+</strong> 
+<p>
+Desenvolvimento e manutenção do sistema em Angular, DevExpress, .NET Core e banco de dados SQL Server.
+</p>
+
+
+<h2> 
+Full Stack Developer
+</h2>
+<strong> 
+Cidade AMA · Tempo integral
+</strong> 
+<p>
+Desenvolvimento e manutenção de sistemas WEB utilizando Vue.js e Java | Jquery, HTML5, CSS3, .NET Core e MySQL. E responsável técnico pelo projeto - Entrevistas técnicas e escolhas de tecnologias/arquitetura.
+</p>
+
+
+<h2> 
+Ecommerce Developer
+</h2>
+<strong> 
+Gomma SA · Tempo integral
+</strong> 
+<p>
+Desenvolvedor commerce da loja virtual da empresa.
+.NET Core, Angular e SQL Server.
+</p>
+
+
+<h2> 
+System Analyst
+</h2>
+<strong> 
+Ciashop by TOTVS
+</strong> 
+<p>
+Analista de sistemas da plataforma Ciashop.
+.NET, AngularJS e SQL Server.
+</p>
