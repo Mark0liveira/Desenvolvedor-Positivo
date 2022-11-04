@@ -1,14 +1,13 @@
 
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using FluentAssertions;
-using ProcurandoApartamento.Infrastructure.Data;
 using ProcurandoApartamento.Domain;
 using ProcurandoApartamento.Domain.Repositories.Interfaces;
 using ProcurandoApartamento.Test.Setup;
-using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using Xunit;
 
@@ -42,6 +41,17 @@ namespace ProcurandoApartamento.Test.Controllers
         private readonly AppWebApplicationFactory<TestStartup> _factory;
         private readonly HttpClient _client;
         private readonly IApartamentoRepository _apartamentoRepository;
+        
+        private const string Quadra1 = "QUADRA 1";
+        private const string Quadra2 = "QUADRA 2";
+        private const string Quadra4 = "QUADRA 4";
+        private const string Quadra5 = "QUADRA 5";
+        
+        private const string Academia = "ACADEMIA";
+        private const string Mercado = "MERCADO";
+        private const string Escola = "Escola";
+        
+        private readonly List<string> _estabelecimentos = new();
 
         private Apartamento _apartamento;
 
@@ -220,6 +230,70 @@ namespace ProcurandoApartamento.Test.Controllers
             apartamento1.Should().NotBe(apartamento2);
             apartamento1.Id = 0;
             apartamento1.Should().NotBe(apartamento2);
+        }
+        
+        [Fact]
+        public async Task RecuperaMelhorApartamento_ComAcademia()
+        {
+            await _apartamentoRepository.CreateOrUpdateAsync(_apartamento);
+            await _apartamentoRepository.SaveChangesAsync();
+
+            _estabelecimentos.Add(Academia);
+            var response = await _client.PostAsync(
+                "/api/apartamentos/MelhorApartamento", 
+                TestUtil.ToJsonContent(_estabelecimentos));
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            string melhorQuadra = await response.Content.ReadAsStringAsync();
+            melhorQuadra.Should().Contain(Quadra2);
+        }
+        
+        [Fact]
+        public async Task RecuperaMelhorApartamento_ComAcademiaEMercado()
+        {
+            await _apartamentoRepository.CreateOrUpdateAsync(_apartamento);
+            await _apartamentoRepository.SaveChangesAsync();
+
+            _estabelecimentos.AddRange(new []{ Academia, Mercado });
+            var response = await _client.PostAsync(
+                "/api/apartamentos/MelhorApartamento", 
+                TestUtil.ToJsonContent(_estabelecimentos));
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            string melhorQuadra = await response.Content.ReadAsStringAsync();
+            melhorQuadra.Should().Contain(Quadra1);
+        }
+        
+        [Fact]
+        public async Task RecuperaMelhorApartamento_ComMercado()
+        {
+            await _apartamentoRepository.CreateOrUpdateAsync(_apartamento);
+            await _apartamentoRepository.SaveChangesAsync();
+
+            _estabelecimentos.Add(Mercado);
+            var response = await _client.PostAsync(
+                "/api/apartamentos/MelhorApartamento", 
+                TestUtil.ToJsonContent(_estabelecimentos));
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            string melhorQuadra = await response.Content.ReadAsStringAsync();
+            melhorQuadra.Should().Contain(Quadra5);
+        }
+        
+        [Fact]
+        public async Task RecuperaMelhorApartamento_ComEscola()
+        {
+            await _apartamentoRepository.CreateOrUpdateAsync(_apartamento);
+            await _apartamentoRepository.SaveChangesAsync();
+
+            _estabelecimentos.Add(Escola);
+            var response = await _client.PostAsync(
+                "/api/apartamentos/MelhorApartamento", 
+                TestUtil.ToJsonContent(_estabelecimentos));
+            response.StatusCode.Should().Be(HttpStatusCode.OK);
+
+            string melhorQuadra = await response.Content.ReadAsStringAsync();
+            melhorQuadra.Should().Contain(Quadra4);
         }
     }
 }
